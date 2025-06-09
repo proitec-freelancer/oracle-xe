@@ -9,7 +9,7 @@ docker logs -f oracle-xe
 
 docker ps
 
-*** Entrar al contendeor ***
+*** Entrar al contenedor ***
 docker exec -it 282528416d86 /bin/bash
 
 *** Salir del contenedor ***
@@ -42,4 +42,16 @@ ALTER USER SYSTEM IDENTIFIED BY 1234
 
 --ALCAMBIAR LA CLAVE DEL USUARIO NO PUEDE REUTILIZAR SU CLAVE POR 90 DIAS 
 ALTER PROFILE DEFAULT LIMIT PASSWORD_REFUSE_TIME 90 PASSWORD_REUSE_MAX_UNLIMITED;
+
+*** logs del contenedor ***
+
+cat /opt/oracle/diag/rdbms/xe/XE/trace/alert_XE.log
+
+Qué contiene: Todo el historial de eventos importantes de la instancia Oracle (startup, shutdown, errores críticos).
+
+Listener Log : cat /opt/oracle/diag/tnslsnr/b75e526c5b9b/listener/trace/listener.log Conexiones entrantes y actividad del listener
+
+Trace Files (session logs) /opt/oracle/diag/rdbms/xe/XE/trace/*.trc Archivos de traza por sesión o proceso (detallados)
+
+
 
