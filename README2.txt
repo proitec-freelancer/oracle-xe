@@ -40,10 +40,12 @@ INSERT INTO alumnos (nombre, apellido, fecha_nacimiento, correo, carrera) VALUES
 INSERT INTO alumnos (nombre, apellido, fecha_nacimiento, correo, carrera) VALUES ('Cristóbal', 'Morales', TO_DATE('1999-04-02', 'YYYY-MM-DD'), 'cristobal.morales@example.com', 'Ingeniería Mecánica');
 INSERT INTO alumnos (nombre, apellido, fecha_nacimiento, correo, carrera) VALUES ('Paula', 'Herrera', TO_DATE('2001-10-19', 'YYYY-MM-DD'), 'paula.herrera@example.com', 'Educación Básica');
 
-SELECT * FROM alumnos;
+
 
 -- Confirmar cambios
 COMMIT;
+
+SELECT * FROM alumnos;
 
 SELECT alumnos FROM all_users WHERE username = 'liceo';
 
