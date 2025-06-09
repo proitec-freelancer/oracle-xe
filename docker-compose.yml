@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  oracle-xe:
+    image: container-registry.oracle.com/database/express:latest
+    container_name: oracle-xe
+    ports:
+      - "1521:1521"   # Puerto para conexión SQL*Net
+      - "5500:5500"   # Puerto para Oracle Enterprise Manager
+    environment:
+      - ORACLE_PWD=123456               # Contraseña para SYS, SYSTEM y PDBADMIN
+      - ORACLE_CHARACTERSET=AL32UTF8    # Set de caracteres recomendado
+      - ORACLE_SID=XE                   # Nombre de la instancia
+      - ORACLE_PDB=FREEPDB1              # Nombre del PDB (Base de Datos Pluggable)
+      - ORACLE_MEM=2GB                  # Limitar memoria a 2GB
+      - ORACLE_EDITION=express          # Edición XE
+      - ORACLE_LICENSE=accept           # Aceptación automática del EULA
+    volumes:
+      - oracle-xe-data:/opt/oracle/oradata
+    restart: unless-stopped
+
+volumes:
+  oracle-xe-data:
